@@ -1,16 +1,17 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
+from src.components.sidebar import render_sidebar
+from src.state.session import init_session
+from src.services.data_service import load_example_data
 
 st.set_page_config(page_title="Dashboard", layout="wide")
+init_session()
+render_sidebar()
 
 st.title("Dashboard")
 
-df = pd.DataFrame(
-    {"x": [1, 2, 3, 4, 5], "y": [10, 12, 9, 14, 13], "id": ["A", "B", "C", "D", "E"]}
-)
+df = load_example_data()
+st.dataframe(df, use_container_width=True)
 
-fig = px.scatter(df, x="x", y="y", hover_data=["id"])
-st.plotly_chart(fig, use_container_width=True)
-
-st.write("Luego aquí haremos la selección de puntos y enviaremos el ID al detalle.")
+selected = st.selectbox("Selecciona un ID para detalle", df["id"].tolist())
+st.session_state["selected_id"] = selected
+st.success(f"Seleccionado: {selected}")
