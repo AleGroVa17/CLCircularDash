@@ -8,3 +8,4 @@ if not selected_id:
 else:
     st.write(f"Mostrando detalle de: {selected_id}")
     # aquí consultas/cargas info según selected_id
+    
