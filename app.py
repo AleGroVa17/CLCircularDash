@@ -14,9 +14,6 @@ st.subheader("Navegación rápida")
 
 col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.page_link("pages/01_Inicio.py", label="Inicio", icon="🏠")
-
 with col2:
     st.page_link("pages/02_Dashboard.py", label="Dashboard", icon="📊")
 
