@@ -3,7 +3,6 @@ from src.components.sidebar import render_sidebar
 from src.state.session import init_session
 from src.services.data_service import load_example_data
 
-st.set_page_config(page_title="Dashboard", layout="wide")
 init_session()
 render_sidebar()
 

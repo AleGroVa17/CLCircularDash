@@ -3,7 +3,6 @@ from src.components.sidebar import render_sidebar
 from src.state.session import init_session
 from src.services.model_service import run_model_example
 
-st.set_page_config(page_title="Modelos", layout="wide")
 init_session()
 render_sidebar()
 
